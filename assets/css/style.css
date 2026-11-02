@@ -1,65 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* ===== BASE MOBILE-FIRST (< 576px) ===== */
+
 body {
   font-family: "Roboto", Arial, sans-serif;
   line-height: 1.6;
   background-color: #fafafa;
+  margin: 0;
 }
 
-.chisono {
-  background: 57#fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 40px 28px;
-  margin: 20px auto;
-  max-width: 800px;
+/* immagini fluide */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.competenze {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 40px 28px;
-  margin: 20px auto;
-  max-width: 800px;
+main {
+  padding: 16px;
 }
 
-.esperienze {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 40px 28px;
-  margin: 20px auto;
-  max-width: 900px;
-}
-
-.progetti {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 40px 28px;
-  margin: 20px auto;
-  max-width: 900px;
-}
-
+/* card delle sezioni */
+.chisono,
+.competenze,
+.esperienze,
+.progetti,
 .contatti {
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 40px 28px;
+  padding: 16px;
   margin: 20px auto;
+}
+
+.chisono,
+.competenze {
+  max-width: 800px;
+}
+
+.esperienze,
+.progetti,
+.contatti {
   max-width: 900px;
+}
+
+main section {
+  padding: 16px;
 }
 
 .navbar ul {
   color: rgb(248, 248, 248);
   list-style-type: none;
   padding: 0;
+  text-align: center;
 }
 
 nav li:hover {
@@ -77,20 +70,24 @@ nav li {
   text-align: center;
 }
 
+/* avatar: centrato sopra il testo su mobile */
 .everest {
+  display: block;
+  margin: 0 auto 16px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
-  float: left;
   border: 5px solid rgb(218, 171, 45);
 }
 
-header {
+#site-header {
   background-image: url("../image/climber.jpg");
   background-size: cover;
-  padding: 0;
   background-position: center;
   text-align: center;
   line-height: 2.4;
-  padding: 60px 20px 40px;
+  padding: 30px 16px 20px;
   border-bottom: 4px solid hsl(45, 90%, 60%);
   font-weight: bold;
   font-style: italic;
@@ -106,10 +103,13 @@ h1 {
   color: white;
   padding-top: 10%;
   margin: 0;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  line-height: 1.2;
 }
 
 h2 {
   color: #1f3d7a;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
 }
 
 h2::before {
@@ -117,7 +117,6 @@ h2::before {
   font-size: 1.5em;
   content: "-";
 }
-
 
 .testoCorsivo p {
   font-style: italic;
@@ -135,6 +134,7 @@ section b {
 a:hover {
   color: hsl(22, 30%, 93%);
 }
+
 nav,
 a {
   color: hsl(41, 87%, 47%);
@@ -148,6 +148,11 @@ a {
   background-color: rgba(218, 227, 235, 0.4);
 }
 
+/* tabella: scroll orizzontale su mobile */
+.table-wrapper {
+  overflow-x: auto;
+}
+
 thead {
   font-weight: bold;
 }
@@ -155,6 +160,7 @@ thead {
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 480px;
 }
 
 th,
@@ -170,11 +176,19 @@ input:focus {
   color: #232323;
 }
 
+/* form a tutta larghezza su mobile */
 input,
-textarea {
+textarea,
+select,
+button {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  font-size: 16px;
+}
+
+#consenso {
+  width: auto;
 }
 
 label {
@@ -190,7 +204,6 @@ button:hover {
 button {
   background-color: hsl(220, 60%, 30%);
   font-weight: bold;
-  width: 30%;
   padding: 12px 24px;
   border: none;
   border-radius: 4px;
@@ -209,4 +222,46 @@ footer {
 
 footer p {
   color: white;
+}
+
+/* ===== TABLET (>= 768px) ===== */
+@media (min-width: 768px) {
+  #site-header {
+    padding: 60px 20px 40px;
+  }
+
+  main {
+    padding: 40px 20px;
+  }
+
+  main section {
+    padding: 32px;
+  }
+
+  .everest {
+    float: left;
+    margin: 0 20px 16px 0;
+  }
+
+  /* la sezione contiene l'immagine flottata */
+  .chisono {
+    display: flow-root;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 60%;
+  }
+
+  button {
+    width: auto;
+  }
+}
+
+/* ===== DESKTOP (>= 1200px) ===== */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 3.5rem;
+  }
 }
