@@ -1,185 +1,151 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lezione W1 D1</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=fiber_new" />
+    <title>Mario Rossi — Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
+  </head>
+  <body>
 
-<body>
     <header id="site-header">
-        <div class="navbar">
-            <h1> Gabriel Bollati </h1>
-            <br>
-            <p>
-                <b>Studente Full Stack</b> -- corso Epicode 2026
-            </p>
-            <nav>
-                <ul>
-                    <li><a href="#chisono"><b>Chi sono</b></a></li>
-                    <li><a href="#Competenze"><b>Competenze</b></a></li>
-                    <li><a href="#Esperienze"><b>Esperienze</b></a></li>
-                    <li><a href="#progetti"><b>Progetti</b></a></li>
-                    <li><a href="#contatti"><b>Contatti</b></a></li>
-                </ul>
-            </nav>
-        </div>
+      <h1>Mario Rossi</h1>
+      <p class="tagline"><strong>Studente Full Stack</strong> — corso Epicode 2026</p>
+      <nav>
+        <ul>
+          <li><a href="#chi-sono">Chi sono</a></li>
+          <li><a href="#competenze">Competenze</a></li>
+          <li><a href="#esperienze">Esperienze</a></li>
+          <li><a href="#progetti">Progetti</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
     </header>
+
     <main>
-        <div>
-            <section class="chisono" id="chisono">
-                <h2>Chi sono</h2>
-                <div>
-                    <img src="assets/image/everest.jpg" alt="fotoeverest" class="everest" width="200" height="200">
-                </div>
-                <div class="testoCorsivo">
-                    <p>
-                        Mi chiamo Gabriel Bollati e sto imparando a programmare. Studio sviluppo web con <b>Epicode</b>
-                        eogni
-                        giorno aggiungo qualcosa di nuov a questa pagina. Mi piace lavorare in gruppo, leggere
-                        documentazione
-                        tecnica e capire come funzionano le cose.
-                    </p>
-                </div>
-                <p>
-                    Vivo a Torino. Ho una formazione precedente in Audiovsivo e Multimediale e ora sto cambiando
-                    settore.
-                    Cerco un primo ruolo come sviluppatore frontend
-                </p>
-            </section>
+
+      <section id="chi-sono">
+        <h2>Chi sono</h2>
+        <img class="avatar" src="https://placehold.co/200x200" alt="Foto profilo di Mario Rossi">
+        <p>Mi chiamo Mario Rossi e sto imparando a programmare. Studio sviluppo web con <strong>Epicode</strong> e ogni giorno aggiungo qualcosa a questa pagina.</p>
+        <p>Vivo a Milano. Ho una formazione precedente in <em>lettere</em> e ora sto cambiando settore. Cerco un primo ruolo come sviluppatore frontend.</p>
+      </section>
+
+      <section id="competenze">
+        <h2>Competenze</h2>
+        <p>Le tecnologie che vedo durante le prime settimane di corso.</p>
+        <ul class="skill-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Git e GitHub</li>
+          <li>Visual Studio Code</li>
+        </ul>
+      </section>
+
+      <section id="esperienze">
+        <h2>Esperienze</h2>
+        <p>Un riepilogo del mio percorso formativo e lavorativo recente.</p>
+        <div class="table-wrapper">
+        <table>
+          <caption>Esperienze formative e lavorative</caption>
+          <thead>
+            <tr>
+              <th scope="col">Anno</th>
+              <th scope="col">Ruolo</th>
+              <th scope="col">Azienda / Scuola</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026</td>
+              <td>Studente Full Stack</td>
+              <td>Epicode</td>
+            </tr>
+            <tr>
+              <td>2024 - 2025</td>
+              <td>Libraio</td>
+              <td>Libreria Centrale, Milano</td>
+            </tr>
+            <tr>
+              <td>2018 - 2022</td>
+              <td>Studente di Lettere</td>
+              <td>Università degli Studi di Milano</td>
+            </tr>
+          </tbody>
+        </table>
         </div>
-        <div>
-            <section class="competenze" id="Competenze">
-                <h2>Competenze</h2>
-                <p>
-                    Le tecnologie che vedo durante le prime settimanne del corso.
-                </p>
+      </section>
 
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Git</li>
-                    <li>Visual Studio Code</li>
-                    <li>Fotografia</li>
-                    <li>Videomaking</li>
-                    <li>VideoEditing</li>
-                    <li>Drone specialist</li>
-                </ul>
+      <section id="progetti">
+        <h2>Progetti</h2>
+        <p>I lavori fatti durante le prime settimane di corso.</p>
 
-            </section>
-        </div>
-        <div>
-            <section class="esperienze" id="Esperienze">
-                <h2>Esperienze</h2>
-                <p> Un riepilogo del mio percoerso formativo e lavorativo recente. </p>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Anno</th>
-                                <th>Ruolo</th>
-                                <th>Azienda/Scuola</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2026</td>
-                                <td>Studente Full Stack</td>
-                                <td>Epicode</td>
-                            </tr>
-                            <tr>
-                                <td>2023-2025</td>
-                                <td>Montatore Palchi</td>
-                                <td>Torino</td>
-                            </tr>
-                            <tr>
-                                <td>2018-2024</td>
-                                <td>Studente liceale</td>
-                                <td>Primo liceo Artistico</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-        <div>
-            <section class="progetti" id="progetti">
-                <h2>Progetti</h2>
-                <p> I lavori fatti durante la prima settimana di corso.</p>
+        <article class="project">
+          <h3>Pagina ricetta</h3>
+          <p>Una pagina con titolo, ingredienti e procedura. Esercizio di markup semantico applicato a un contenuto reale.</p>
+          <p><a href="https://github.com/mariorossi/ricetta" target="_blank">Vedi su GitHub</a></p>
+        </article>
 
-                <section class="pagina-ricetta">
-                    <h3>Pagina ricetta</h3>
-                    <p> Una pagina con titolo, ingredienti e procedura. Esercizio di markup semantico applicato a un
-                        contenuto
-                        reale.
-                    </p>
-                    <a href="https://github.com/Ilbollit0?tab=repositories"><b>Vedi su GitHub</b></a>
-                </section>
+        <article class="project">
+          <h3>Card di presentazione</h3>
+          <p>Un biglietto digitale con nome, ruolo e link ai social.</p>
+          <p><a href="https://github.com/mariorossi/card" target="_blank">Vedi su GitHub</a></p>
+        </article>
+      </section>
 
-                <section class="curriculum">
-                    <h3> Card di presentazione </h3>
-                    <p> un biglietto digitale, ruolo e link ai social. Esercizio di sintesi sulla struttura HTML</p>
-                    <a href="https://github.com/Ilbollit0"><b>Vedi su GitHub</b></a>
-                </section>
-            </section>
-        </div>
-        <div>
-            <section class="contatti" id="contatti">
-                <h2>Contattami</h2>
-                <p>Compila il form per scrivermi. Ti rispondo entro 24 ore.</p>
+      <section id="contatti">
+        <h2>Contattami</h2>
+        <p>Compila il form per scrivermi. Ti rispondo entro 24 ore.</p>
 
-                <form action="#" method="POST">
+        <form action="#" method="POST">
 
-                    <p>
-                        <label for="nome">Nome</label><br>
-                        <input type="text" id="nome" name="nome" class="focus" placeholder="Il tuo nome" required>
-                    </p>
+          <p>
+            <label for="nome">Nome</label><br>
+            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+          </p>
 
-                    <p>
-                        <label for="email">Email</label><br>
-                        <input type="email" id="email" name="email" class="focus" placeholder="tu@esempio.it" required>
-                    </p>
+          <p>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="tu@esempio.it" required>
+          </p>
 
-                    <p>
-                        <label for="motivo">Motivo del contatto</label><br>
-                        <select id="motivo" name="motivo" class="focus">
-                            <option value="lavoro">Proposta di lavoro</option>
-                            <option value="collaborazione">Collaborazione su un progetto</option>
-                            <option value="info">Richiesta di informazioni</option>
-                            <option value="altro">Altro</option>
-                        </select>
-                    </p>
+          <p>
+            <label for="motivo">Motivo del contatto</label><br>
+            <select id="motivo" name="motivo">
+              <option value="lavoro">Proposta di lavoro</option>
+              <option value="collaborazione">Collaborazione su un progetto</option>
+              <option value="info">Richiesta di informazioni</option>
+              <option value="altro">Altro</option>
+            </select>
+          </p>
 
-                    <p>
-                        <label for="data">Data preferita per la risposta</label><br>
-                        <input type="date" id="data" name="data" class="focus">
-                    </p>
+          <p>
+            <label for="data">Data preferita per la risposta</label><br>
+            <input type="date" id="data" name="data">
+          </p>
 
-                    <p>
-                        <label for="messaggio">Messaggio</label><br>
-                        <textarea id="messaggio" name="messaggio" class="focus" rows="5"
-                            placeholder="Scrivi qui il tuo messaggio..." required></textarea>
-                    </p>
+          <p>
+            <label for="messaggio">Messaggio</label><br>
+            <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+          </p>
 
-                    <p>
-                        <input type="checkbox" id="consenso" name="consenso" required>
-                        <label for="consenso">Accetto di essere ricontattato all'indirizzo indicato</label>
-                    </p>
-                    <p>
-                        <button type="submit">Invia</button>
-                    </p>
+          <p>
+            <input type="checkbox" id="consenso" name="consenso" required>
+            <label for="consenso">Accetto di essere ricontattato all'indirizzo indicato</label>
+          </p>
 
-                </form>
-            </section>
-        </div>
+          <p>
+            <button type="submit">Invia</button>
+          </p>
+
+        </form>
+      </section>
+
     </main>
-    <footer>
-        <p> &#169; 2026 Gabriel Bollati.</p>
-    </footer>
-</body>
 
+    <footer id="site-footer">
+      <p>© 2026 Mario Rossi</p>
+    </footer>
+
+  </body>
 </html>

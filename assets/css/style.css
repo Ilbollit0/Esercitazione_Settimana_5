@@ -1,198 +1,317 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+/* Portfolio Page — Settimana V, Giorno I
+   Refactoring in ottica responsive (mobile-first). */
 
-/* ===== BASE MOBILE-FIRST (< 576px) ===== */
+
+/* Reset minimale */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: "Roboto", Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #fafafa;
   margin: 0;
 }
 
-/* immagini fluide */
+
+/* Body: tipografia di base */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2b2b2b;
+  background-color: #fafafa;
+}
+
+
+/* Immagini fluide di default */
 img {
   max-width: 100%;
   height: auto;
 }
 
-main {
-  padding: 16px;
-}
 
-/* card delle sezioni */
-.chisono,
-.competenze,
-.esperienze,
-.progetti,
-.contatti {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 16px;
-  margin: 20px auto;
-}
-
-.chisono,
-.competenze {
-  max-width: 800px;
-}
-
-.esperienze,
-.progetti,
-.contatti {
-  max-width: 900px;
-}
-
-main section {
-  padding: 16px;
-}
-
-.navbar ul {
-  color: rgb(248, 248, 248);
-  list-style-type: none;
-  padding: 0;
-  text-align: center;
-}
-
-nav li:hover {
-  border-radius: 5%;
-  background-color: #cccbcb;
-}
-
-nav li {
-  text-align: center;
-  display: inline-block;
-  padding-right: 15px;
-}
-
-.navbar {
-  text-align: center;
-}
-
-/* avatar: centrato sopra il testo su mobile */
-.everest {
-  display: block;
-  margin: 0 auto 16px;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid rgb(218, 171, 45);
-}
-
+/* Header — mobile-first */
 #site-header {
-  background-image: url("../image/climber.jpg");
+  background-color: hsl(220, 40%, 20%);
+  background-image: url("img/header-bg.jpg");
   background-size: cover;
   background-position: center;
+  color: #ffffff;
   text-align: center;
-  line-height: 2.4;
+  line-height: 1.8;
   padding: 30px 16px 20px;
   border-bottom: 4px solid hsl(45, 90%, 60%);
-  font-weight: bold;
-  font-style: italic;
-  text-shadow: 0 2px 4px rgba(226, 17, 17, 0.2);
 }
 
-.navbar p {
-  color: #f44a4a;
-  padding-bottom: 5%;
-}
-
-h1 {
-  color: white;
-  padding-top: 10%;
-  margin: 0;
+#site-header h1 {
   font-size: clamp(1.8rem, 6vw, 3rem);
-  line-height: 1.2;
-}
-
-h2 {
-  color: #1f3d7a;
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
-}
-
-h2::before {
-  color: rgb(218, 171, 45);
-  font-size: 1.5em;
-  content: "-";
-}
-
-.testoCorsivo p {
+  font-weight: bold;
   font-style: italic;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 8px 0;
 }
 
-.testoCorsivo::first-letter {
-  font-size: 2em;
-  color: #e77f0a;
+.tagline {
+  color: rgb(220, 220, 220);
+  font-style: italic;
+  font-size: 0.95rem;
 }
 
-section b {
-  color: #1f3d7a;
+/* Tablet+ */
+@media (min-width: 768px) {
+  #site-header {
+    padding: 60px 20px 40px;
+    line-height: 2.4;
+  }
 }
 
-a:hover {
-  color: hsl(22, 30%, 93%);
+
+/* Nav — inline-block, va a capo naturalmente su mobile */
+#site-header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  text-align: center;
 }
 
-nav,
-a {
-  color: hsl(41, 87%, 47%);
+#site-header nav li {
+  display: inline-block;
 }
 
-.competenze li:first-child {
+#site-header nav a {
+  color: hsl(45, 90%, 70%);
+  font-weight: bold;
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 2px;
+  border-radius: 4px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+#site-header nav a:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Main centrato — mobile-first */
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 40px 20px;
+  }
+}
+
+
+/* Sezioni come card */
+main section {
+  background-color: #ffffff;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 768px) {
+  main section {
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+
+/* Titoli del main con marker */
+h2 {
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  color: hsl(220, 60%, 30%);
+  text-align: left;
+  line-height: 1.4;
+  margin-top: 0;
+}
+
+main section h2::before {
+  content: "— ";
+  color: hsl(45, 90%, 50%);
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: hsl(220, 30%, 25%);
+  text-align: left;
+  line-height: 1.6;
+}
+
+
+/* Avatar — mobile centrato, desktop floated */
+.avatar {
+  width: 110px;
+  height: 110px;
+  border: 4px solid hsl(45, 90%, 60%);
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+#chi-sono {
+  text-align: left;
+}
+
+#chi-sono p:first-of-type {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: hsl(220, 30%, 25%);
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    float: left;
+    margin: 0 24px 12px 0;
+  }
+  #chi-sono {
+    text-align: justify;
+  }
+  #chi-sono p:first-of-type {
+    font-size: 1.15rem;
+  }
+  #chi-sono p:first-of-type::first-letter {
+    font-size: 3rem;
+    font-weight: bold;
+    float: left;
+    margin-right: 6px;
+    color: hsl(220, 60%, 30%);
+  }
+  /* Sezione successiva: clear del float dell'avatar */
+  #competenze {
+    clear: both;
+  }
+}
+
+
+/* Lista competenze a righe alternate */
+.skill-list {
+  line-height: 2.2;
+  padding-left: 20px;
+}
+
+.skill-list li:nth-child(odd) {
+  background-color: #f5f7fb;
+}
+
+.skill-list li:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.skill-list li:first-child {
   font-weight: bold;
 }
 
-.competenze li:nth-child(odd) {
-  background-color: rgba(218, 227, 235, 0.4);
-}
 
-/* tabella: scroll orizzontale su mobile */
+/* Tabella esperienze — wrapper con scroll orizzontale su mobile */
 .table-wrapper {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-thead {
-  font-weight: bold;
-}
-
-table {
-  border-collapse: collapse;
+.table-wrapper table {
   width: 100%;
   min-width: 480px;
+  border-collapse: collapse;
 }
 
-th,
-td {
-  border: 1px solid;
+.table-wrapper th,
+.table-wrapper td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
 }
 
-.pagina-ricetta {
-  background-color: rgb(218, 227, 235);
+.table-wrapper caption {
+  font-style: italic;
+  color: #666;
+  padding: 8px 0;
 }
 
-input:focus {
-  color: #232323;
+
+/* Progetti alternati + tag NEW sul primo */
+.project:nth-of-type(odd) {
+  background-color: hsl(45, 60%, 96%);
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
 }
 
-/* form a tutta larghezza su mobile */
+.project:nth-of-type(even) {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.project:first-of-type h3::after {
+  content: "NEW";
+  display: inline-block;
+  padding: 2px 8px;
+  margin-left: 12px;
+  background-color: hsl(0, 70%, 50%);
+  color: #ffffff;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  vertical-align: middle;
+}
+
+
+/* Form contatti — mobile-first */
+label {
+  font-weight: bold;
+  color: hsl(220, 60%, 25%);
+}
+
 input,
 textarea,
-select,
-button {
+select {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; /* evita zoom iOS al focus */
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  font-size: 16px;
+  background-color: #f5f7fb;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: #ffffff;
+  color: #000000;
+  outline: 2px solid hsl(220, 60%, 45%);
 }
 
 #consenso {
   width: auto;
 }
 
-label {
-  color: rgb(17, 102, 175);
+input::placeholder,
+textarea::placeholder {
+  color: #999999;
+  font-style: italic;
+}
+
+button {
+  color: #ffffff;
+  background-color: hsl(220, 60%, 30%);
+  font-weight: bold;
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
@@ -201,67 +320,32 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-button {
-  background-color: hsl(220, 60%, 30%);
-  font-weight: bold;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: white;
-}
-
-footer {
-  background-color: hsl(220, 40%, 15%);
-  color: #ffffff;
-  text-align: center;
-  font-size: 0.9rem;
-  line-height: 2.4;
-  padding: 30px 20px;
-}
-
-footer p {
-  color: white;
-}
-
-/* ===== TABLET (>= 768px) ===== */
 @media (min-width: 768px) {
-  #site-header {
-    padding: 60px 20px 40px;
-  }
-
-  main {
-    padding: 40px 20px;
-  }
-
-  main section {
-    padding: 32px;
-  }
-
-  .everest {
-    float: left;
-    margin: 0 20px 16px 0;
-  }
-
-  /* la sezione contiene l'immagine flottata */
-  .chisono {
-    display: flow-root;
-  }
-
   input,
   textarea,
   select {
     width: 60%;
   }
-
   button {
     width: auto;
+    min-width: 30%;
   }
 }
 
-/* ===== DESKTOP (>= 1200px) ===== */
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 3.5rem;
+
+/* Footer */
+#site-footer {
+  background-color: hsl(220, 40%, 15%);
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 2;
+  padding: 20px 16px;
+}
+
+@media (min-width: 768px) {
+  #site-footer {
+    line-height: 2.4;
+    padding: 30px 20px;
   }
 }
