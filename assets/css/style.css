@@ -1,16 +1,17 @@
 /* Portfolio Page — Settimana V, Giorno I
-   Refactoring in ottica responsive (mobile-first). */
-
+   Refactoring in ottica responsive (mobile-first).
+   Settimana V, Giorno II: positioning (sticky, absolute, fixed, modal). */
 
 /* Reset minimale */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
 }
-
 
 /* Body: tipografia di base */
 body {
@@ -21,13 +22,11 @@ body {
   background-color: #fafafa;
 }
 
-
 /* Immagini fluide di default */
 img {
   max-width: 100%;
   height: auto;
 }
-
 
 /* Header — mobile-first */
 #site-header {
@@ -40,6 +39,10 @@ img {
   line-height: 1.8;
   padding: 30px 16px 20px;
   border-bottom: 4px solid hsl(45, 90%, 60%);
+  /* header sempre visibile durante lo scroll */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 #site-header h1 {
@@ -63,7 +66,6 @@ img {
     line-height: 2.4;
   }
 }
-
 
 /* Nav — inline-block, va a capo naturalmente su mobile */
 #site-header nav ul {
@@ -93,7 +95,6 @@ img {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-
 /* Main centrato — mobile-first */
 main {
   max-width: 920px;
@@ -106,7 +107,6 @@ main {
     padding: 40px 20px;
   }
 }
-
 
 /* Sezioni come card */
 main section {
@@ -124,7 +124,6 @@ main section {
     margin-bottom: 24px;
   }
 }
-
 
 /* Titoli del main con marker */
 h2 {
@@ -146,7 +145,6 @@ h3 {
   text-align: left;
   line-height: 1.6;
 }
-
 
 /* Avatar — mobile centrato, desktop floated */
 .avatar {
@@ -192,7 +190,6 @@ h3 {
   }
 }
 
-
 /* Lista competenze a righe alternate */
 .skill-list {
   line-height: 2.2;
@@ -210,7 +207,6 @@ h3 {
 .skill-list li:first-child {
   font-weight: bold;
 }
-
 
 /* Tabella esperienze — wrapper con scroll orizzontale su mobile */
 .table-wrapper {
@@ -237,34 +233,35 @@ h3 {
   padding: 8px 0;
 }
 
-
-/* Progetti alternati + tag NEW sul primo */
-.project:nth-of-type(odd) {
-  background-color: hsl(45, 60%, 96%);
+/* Progetti alternati + badge NEW sul primo */
+.project {
+  position: relative; /* riferimento per il badge absolute */
   padding: 12px;
   border-radius: 4px;
   margin-bottom: 12px;
+}
+
+.project:nth-of-type(odd) {
+  background-color: hsl(45, 60%, 96%);
 }
 
 .project:nth-of-type(even) {
   background-color: #ffffff;
-  padding: 12px;
-  border-radius: 4px;
-  margin-bottom: 12px;
 }
 
-.project:first-of-type h3::after {
+/* badge ancorato all'angolo in alto a destra della prima card */
+.project:first-of-type::after {
   content: "NEW";
-  display: inline-block;
-  padding: 2px 8px;
-  margin-left: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 12px;
   background-color: hsl(0, 70%, 50%);
   color: #ffffff;
-  border-radius: 3px;
+  border-radius: 0 4px 0 4px;
   font-size: 0.75rem;
-  vertical-align: middle;
+  font-weight: bold;
 }
-
 
 /* Form contatti — mobile-first */
 label {
@@ -332,6 +329,88 @@ button:hover {
   }
 }
 
+/* Back-to-top — fisso in basso a destra */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: hsl(220, 60%, 30%);
+  color: #ffffff;
+  text-align: center;
+  line-height: 48px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+}
+
+.back-to-top:hover {
+  background-color: hsl(220, 60%, 45%);
+}
+
+/* Overlay — copre tutta la finestra */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.overlay[hidden] {
+  display: none;
+}
+
+/* Modal — centrato dentro l'overlay */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto; /* il form è lungo: scorre dentro il modal */
+}
+
+/* nel modal i campi occupano tutta la larghezza */
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+}
+
+.modal #consenso {
+  width: auto;
+}
+
+/* bottone X ancorato all'angolo del modal */
+.modal .close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: auto;
+  min-width: 0;
+  padding: 4px 10px;
+  background: none;
+  box-shadow: none;
+  color: #2b2b2b;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.modal .close:hover {
+  color: hsl(0, 70%, 50%);
+  background: none;
+}
 
 /* Footer */
 #site-footer {
