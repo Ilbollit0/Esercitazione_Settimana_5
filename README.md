@@ -63,6 +63,64 @@ Apri `index.html` nel browser e usa i DevTools (modalità dispositivo) per prova
 
 ---
 
+# CSS Positioning
+
+Esercizio Epicode – Settimana V, Giorno II: **sticky, absolute, fixed, modal**.
+
+Sono partito dalla Portfolio Page responsive del Giorno I (cartella `start/`) e ho applicato quattro pattern di positioning.
+
+## Obiettivi
+
+- Header sticky che resta visibile durante lo scroll
+- Badge NEW ancorato all'angolo della prima card progetto (`position: absolute`)
+- Bottone "torna in cima" sempre visibile (`position: fixed`)
+- Modal contatti con overlay scuro: il form si apre cliccando un bottone
+
+## Struttura del progetto
+
+```
+index.html
+style.css
+script.js
+img/header-bg.jpg
+```
+
+## Cosa ho fatto
+
+### Header sticky
+- In `#site-header`: `position: sticky; top: 0; z-index: 100;`. Resta nel flusso e si "incolla" in cima quando scrolli.
+
+### Badge NEW (relative + absolute)
+- Ho raggruppato le regole comuni di `.project` (padding, border-radius, margin-bottom) in un unico blocco con `position: relative`.
+- Ho cancellato il vecchio badge inline `.project:first-of-type h3::after`.
+- Nuovo badge `.project:first-of-type::after` con `content: "NEW"`, `position: absolute; top: 0; right: 0;` e `border-radius: 0 4px 0 4px`: si aggancia all'angolo della prima card.
+
+### Back-to-top (fixed)
+- Dopo `</main>`: `<a href="#site-header" class="back-to-top" aria-label="Torna in cima">↑</a>`.
+- `.back-to-top` con `position: fixed; bottom: 20px; right: 20px;`, 48×48px, `border-radius: 50%`, sfondo blu, testo bianco, `z-index: 50`.
+
+### Modal contatti
+- **HTML:** nella sezione `#contatti` il form è stato sostituito da `<button id="apri-contatti">Scrivimi</button>`. Il form ora sta in `<div id="overlay-contatti" class="overlay" hidden>` → `<div class="modal">`, con un bottone `×` (`id="chiudi-contatti"`) per chiudere.
+- **CSS:**
+  - `.overlay` → `position: fixed` su tutta la finestra (`top/right/bottom/left: 0`), sfondo `rgba(0, 0, 0, 0.5)`, `z-index: 1000`.
+  - `.overlay[hidden] { display: none; }`.
+  - `.modal` → `position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);`, sfondo bianco, padding e bordi arrotondati.
+  - Bottone `×` in `position: absolute` nell'angolo del modal.
+- **JavaScript (`script.js`):** tre `addEventListener`:
+  - click su `#apri-contatti` → `overlay.removeAttribute("hidden")`;
+  - click su `#chiudi-contatti` → `overlay.setAttribute("hidden", "")`;
+  - click sull'overlay (`event.target === overlay`) → chiusura.
+
+### Extra
+- **Blocco dello scroll:** a modal aperto `document.body.style.overflow = "hidden"`, alla chiusura torna `""`.
+- **Chiusura con Escape:** `document.addEventListener("keydown", ...)` chiude il modal quando premi `Escape`.
+
+## Come vederlo
+
+Apri `index.html` nel browser, scorri la pagina per vedere l'header sticky e il bottone ↑, poi clicca **Scrivimi** per aprire il modal.
+
+---
+
 © 2026 Gabriel Bollati
 
 Scritto con l'aiuto di un modello (Readme) di ©Luca.
