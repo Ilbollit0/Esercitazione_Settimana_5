@@ -2,16 +2,28 @@
    Refactoring in ottica responsive (mobile-first).
    Settimana V, Giorno II: positioning (sticky, absolute, fixed, modal). */
 
+
 /* Reset minimale */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
 }
+
+/* L'header sticky copre la parte alta della finestra: quando clicchi un link
+   del nav, la sezione si ferma sotto l'header invece che dietro. */
+html {
+  scroll-padding-top: 350px; /* su schermi stretti il nav va su 3 righe */
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 360px;
+  }
+}
+
 
 /* Body: tipografia di base */
 body {
@@ -22,11 +34,13 @@ body {
   background-color: #fafafa;
 }
 
+
 /* Immagini fluide di default */
 img {
   max-width: 100%;
   height: auto;
 }
+
 
 /* Header — mobile-first */
 #site-header {
@@ -67,6 +81,7 @@ img {
   }
 }
 
+
 /* Nav — inline-block, va a capo naturalmente su mobile */
 #site-header nav ul {
   list-style: none;
@@ -95,6 +110,7 @@ img {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+
 /* Main centrato — mobile-first */
 main {
   max-width: 920px;
@@ -107,6 +123,7 @@ main {
     padding: 40px 20px;
   }
 }
+
 
 /* Sezioni come card */
 main section {
@@ -124,6 +141,7 @@ main section {
     margin-bottom: 24px;
   }
 }
+
 
 /* Titoli del main con marker */
 h2 {
@@ -145,6 +163,7 @@ h3 {
   text-align: left;
   line-height: 1.6;
 }
+
 
 /* Avatar — mobile centrato, desktop floated */
 .avatar {
@@ -190,6 +209,7 @@ h3 {
   }
 }
 
+
 /* Lista competenze a righe alternate */
 .skill-list {
   line-height: 2.2;
@@ -207,6 +227,7 @@ h3 {
 .skill-list li:first-child {
   font-weight: bold;
 }
+
 
 /* Tabella esperienze — wrapper con scroll orizzontale su mobile */
 .table-wrapper {
@@ -232,6 +253,7 @@ h3 {
   color: #666;
   padding: 8px 0;
 }
+
 
 /* Progetti alternati + badge NEW sul primo */
 .project {
@@ -262,6 +284,7 @@ h3 {
   font-size: 0.75rem;
   font-weight: bold;
 }
+
 
 /* Form contatti — mobile-first */
 label {
@@ -329,6 +352,7 @@ button:hover {
   }
 }
 
+
 /* Back-to-top — fisso in basso a destra */
 .back-to-top {
   position: fixed;
@@ -350,6 +374,7 @@ button:hover {
 .back-to-top:hover {
   background-color: hsl(220, 60%, 45%);
 }
+
 
 /* Overlay — copre tutta la finestra */
 .overlay {
@@ -411,6 +436,7 @@ button:hover {
   color: hsl(0, 70%, 50%);
   background: none;
 }
+
 
 /* Footer */
 #site-footer {
